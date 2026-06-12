@@ -1,7 +1,9 @@
 import express from "express";
 import "dotenv/config";
+import cookieParser from "cookie-parser";
 import authRouter from "./routes/authRoutes.js";
 import { connectDB } from "./config/database.js";
+
 
 // Initialize an express app
 const app = express();
@@ -13,7 +15,7 @@ await connectDB();
 
 // Middleware Setup to Parse JSON request bodies
 app.use(express.json());
-
+app.use(cookieParser()); // Cookie parser middleware to parse http cookies
 // Define API routes
 app.use("/api/auth", authRouter);
 
