@@ -12,5 +12,9 @@ authRouter.post("/logout", logout);
 
 authRouter.post("/onboarding", authUser , onboard);
 
+authRouter.get("/me", authUser, (req,res) => {
+  res.status(200).json({user: req.user});
+});
+
 
 export default authRouter;

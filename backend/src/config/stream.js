@@ -17,3 +17,12 @@ export const upsertStreamUser = async (userData) => {
     console.error("Error upserting Stream user:",error);
   }
 };
+
+export const generateStreamToken = (userId) => {
+  try {
+    const userIdString = userId.toString();
+    return stramClient.createToken(userIdString);
+  } catch (error) {
+    
+  }
+};
